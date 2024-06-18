@@ -1,0 +1,38 @@
+:root{
+    --color-primary: rgb(226, 131, 43);
+    --color-description-grey: rgb(186, 186, 186);
+    --color-input: rgb(88, 88, 88);
+    --color-button-hover: rgb(121, 57, 31);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+.container-image{
+    background-image: url(https://i.imgur.com/Ftrb4Od.jpeg);
+    background-position: center;
+    background-size: cover;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    width: 50%;
+    height: 100%;
+}
+
+.container-nav a:hover{
+    color: var(--color-button-hover);
+    cursor: pointer;
+}

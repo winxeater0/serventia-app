@@ -1,0 +1,18 @@
+.content-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.content-input input{
+    border: 1px solid var(--color-description-grey);
+    padding: 15px 10px;
+    border-radius: 8px;
+    color: var(--color-input);
+    font-size: 16px;
+}
+
+.content-input label{
+    color: var(--color-description-grey);
+}
