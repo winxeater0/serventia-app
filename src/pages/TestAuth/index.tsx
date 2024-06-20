@@ -1,20 +1,17 @@
 import axios, { AxiosError } from "axios";
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import Cookies from 'js-cookie';
+import { setupJwtToken } from '../../api/api';
 
 export function TestWeather(){
+
+    setupJwtToken();
     const urlBase = "http://localhost:43644/WeatherForecast";
-    const cookies = parseCookies()
     axios.get(urlBase, {
         headers: { 
-            Authorization: `Bearer ${cookies['accessToken']}`
+            Authorization: `Bearer ${Cookies.get('accessToken')}`
         }
     }).catch(function (error) {
-        console.log("status " +error.response) // res
-        console.log("error " +error.response.data.error) //Please Authenticate or whatever returned from server
-      if(error.response.status==401){
-        console.log("red log")
-        //redirect to login
-      }
+      //redirect to login
     });
 }
 

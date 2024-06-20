@@ -3,8 +3,7 @@ import InputForm from '../../components/InputForm'
 import { useNavigate } from 'react-router-dom'
 import { FormEvent } from "react";
 import axios from "axios";
-import { setupJwtToken } from '../../api/api';
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import Cookies from 'js-cookie';
 
 const Login = () => {
 
@@ -26,11 +25,9 @@ const Login = () => {
       })
       .then((response) => {
         if(response.request.status == 200){
-          setCookie(null, "accessToken", response.data.accessToken, {
-            maxAge: 36000,
-            path: "/",
-          });
-          setupJwtToken();
+
+          Cookies.set('accessToken', response.data.accessToken);
+          Cookies.set('refreshToken', response.data.refreshToken);
           //redirect 
           navigate("/home") 
         }
